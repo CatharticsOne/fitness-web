@@ -1,20 +1,67 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    redirect: '/Home'
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/Home',
+    name: 'Home',
+    component: () => import('views/Home/Home.vue')
+  },
+  {
+    path: '/Forum',
+    name: 'Forum',
+    component: () => import('views/Forum/Forum.vue'),
+    children: [
+      {
+        path:'',
+        redirect: '/Forum/huoyue'
+
+      },
+      {
+        path: 'huoyue',
+        name: 'huoyue',
+
+        component: () => import('components/Forum_com/huoyue.vue')
+      },
+      {
+        path: 'zuixin',
+        name: 'zuixin',
+        component: () => import('components/Forum_com/zuixin.vue')
+      },
+      {
+        path: 'zhoubang',
+        name: 'zhoubang',
+        component: () => import('components/Forum_com/zhoubang.vue')
+      },
+      {
+        path: 'yuebang',
+        name: 'yuebang',
+        component: () => import('components/Forum_com/yuebang.vue')
+      },
+      {
+        path: 'wenda',
+        name: 'wenda',
+        component: () => import('components/Forum_com/wenda.vue')
+      },
+      {
+        path: 'jiaoyou',
+        name: 'jiaoyou',
+        component: () => import('components/Forum_com/jiaoyou.vue')
+      }
+    ]
+
+    
+  },
+  {
+    path: '/User',
+    name: 'User',
+    component: () => import('views/User/User.vue')
   }
+
+  
 ]
 
 const router = createRouter({

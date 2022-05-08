@@ -1,11 +1,11 @@
 <!--  -->
 <template>
-  <div>注册</div>
+  <div></div>
 </template>
 
 <script>
 export default {
-  name: 'Login',
+  name: '',
   data () {
     return {
     };
@@ -13,5 +13,5 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 </style>
